@@ -1,8 +1,9 @@
 import pika, os, sys
 from pika import BasicProperties
+from Config.env import env
 
 def main():
-    connection = pika.BlockingConnection(pika.ConnectionParameters("172.17.0.2"))
+    connection = pika.BlockingConnection(pika.ConnectionParameters(host=env('RABBITMQ_IP')))
     channel = connection.channel()
 
     args = {
