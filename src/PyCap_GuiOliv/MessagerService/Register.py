@@ -1,7 +1,7 @@
-from MessagerService.RabbitMQService import RetryTypes, RabbitMQService
+from src.PyCap_GuiOliv.MessagerService.RabbitMQService import RetryTypes, RabbitMQService
 from dependency_injector.wiring import Provide, inject
-from MessagerService.IMessageBrokerService import IMessageBrokerService
-from Config.Container import RabbitMQContainer
+from src.PyCap_GuiOliv.MessagerService.IMessageBrokerService import IMessageBrokerService
+from src.PyCap_GuiOliv.Config.Container import RabbitMQContainer
 import functools
 
 @inject
