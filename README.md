@@ -1,6 +1,6 @@
 # PyCAP
 
-PyCAP is a simple package inspired by [dotnetcore.CAP](https://cap.dotnetcore.xyz/). Its purpose is to make implementing and working with a message broker e.g. RabbitMQ in Python, with a delay.
+PyCAP, or PyMBCap (the MB is for message broker) is a simple package inspired by [dotnetcore.CAP](https://cap.dotnetcore.xyz/). Its purpose is to make implementing and working with a message broker e.g. RabbitMQ in Python, with a delay.
 
 **Right now, only RabbitMQ is implemented. Feel free to issue a pull request with another implementation. If you plan on doing so, please send me an email.**
 
