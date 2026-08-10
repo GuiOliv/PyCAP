@@ -1,4 +1,4 @@
-from src.PyCap_GuiOliv.MessagerService.IMessageBrokerService import IMessageBrokerService
+from PyCap_GuiOliv.MessagerService.IMessageBrokerService import IMessageBrokerService
 from pika import BasicProperties,BlockingConnection,ConnectionParameters
 from pika.adapters.blocking_connection import BlockingChannel
 from enum import Enum

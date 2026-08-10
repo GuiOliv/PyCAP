@@ -1,9 +1,9 @@
-from src.PyCap_GuiOliv.MessagerService.IMessageBrokerService import IMessageBrokerService
+from PyCap_GuiOliv.MessagerService.IMessageBrokerService import IMessageBrokerService
 from dependency_injector.wiring import Provide, inject
-from src.PyCap_GuiOliv.Config.Container import RabbitMQContainer
-from src.PyCap_GuiOliv.Config.Config import wireRabbitMQContainer
+from PyCap_GuiOliv.Config.Container import RabbitMQContainer
+from PyCap_GuiOliv.Config.Config import wireRabbitMQContainer
 import sys, os
-from src.PyCap_GuiOliv.MessagerService.Register import register
+from PyCap_GuiOliv.MessagerService.Register import register
 
 @inject
 def main(rabbitMQ : IMessageBrokerService = Provide[RabbitMQContainer.MessageService]):
