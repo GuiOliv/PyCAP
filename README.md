@@ -16,7 +16,7 @@ This package relies on dependency injection.
 This means that, for it to be injected, it must be first "added as a service". You can do so by following the example bellow:
 
 ```python
-from PyCap.Config.Config import wireRabbitMQContainer
+from PyMBCap.Config.Config import wireRabbitMQContainer
 
 if __name__ == "__main__":
     wireRabbitMQContainer([__name__])
@@ -30,9 +30,9 @@ if __name__ == "__main__":
 
 To publish a message, simply establish a connection and fill in the required arguments, just like:
 ```python
-from PyCap.MessagerService.IMessageBrokerService import IMessageBrokerService
+from PyMBCap.MessagerService.IMessageBrokerService import IMessageBrokerService
 from dependency_injector.wiring import Provide, inject
-from PyCap.Config.Container import RabbitMQContainer
+from PyMBCap.Config.Container import RabbitMQContainer
 
 @inject
 def main(rabbitMQ : IMessageBrokerService = Provide[RabbitMQContainer.MessageService]):
@@ -55,10 +55,10 @@ Delay is in milliseconds.
 To mark the function that is supposed to be triggered by the published message, use the decorator above the function with the same exchange_name and routing_key as you used to publish.
 
 ```python
-from PyCap.MessagerService.IMessageBrokerService import IMessageBrokerService
+from PyMBCap.MessagerService.IMessageBrokerService import IMessageBrokerService
 from dependency_injector.wiring import Provide, inject
-from PyCap.Config.Container import RabbitMQContainer
-from PyCap.MessagerService.Register import register
+from PyMBCap.Config.Container import RabbitMQContainer
+from PyMBCap.MessagerService.Register import register
 
 @inject
 def main(rabbitMQ : IMessageBrokerService = Provide[RabbitMQContainer.MessageService]):
