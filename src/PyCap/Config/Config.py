@@ -1,4 +1,4 @@
-from PyCap_GuiOliv.Config.Container import RabbitMQContainer
+from PyCap.Config.Container import RabbitMQContainer
 
 def wireRabbitMQContainer(modules : list[str]):
     container = RabbitMQContainer()

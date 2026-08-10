@@ -1,5 +1,5 @@
 from dependency_injector import containers, providers
-from PyCap_GuiOliv.MessagerService.RabbitMQService import RabbitMQService
+from PyCap.MessagerService.RabbitMQService import RabbitMQService
 
 class RabbitMQContainer(containers.DeclarativeContainer):
 

@@ -3,7 +3,7 @@ requires = ["hatchling >= 1.26"]
 build-backend = "hatchling.build"
 
 [project]
-name = "PyCap_GuiOliv"
+name = "PyCap"
 version = "0.0.1"
 authors = [
   { name="Guilherme Oliveira", email="gui.p.oliv@proton.me" },
