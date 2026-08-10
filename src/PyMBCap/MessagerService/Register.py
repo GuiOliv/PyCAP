@@ -1,7 +1,7 @@
-from PyCap.MessagerService.RabbitMQService import RetryTypes, RabbitMQService
+from PyMBCap.MessagerService.RabbitMQService import RetryTypes, RabbitMQService
 from dependency_injector.wiring import Provide, inject
-from PyCap.MessagerService.IMessageBrokerService import IMessageBrokerService
-from PyCap.Config.Container import RabbitMQContainer
+from PyMBCap.MessagerService.IMessageBrokerService import IMessageBrokerService
+from PyMBCap.Config.Container import RabbitMQContainer
 import functools
 
 @inject

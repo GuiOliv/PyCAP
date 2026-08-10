@@ -3,12 +3,12 @@ requires = ["hatchling >= 1.26"]
 build-backend = "hatchling.build"
 
 [project]
-name = "PyCap"
+name = "PyMBCap"
 version = "0.0.1"
 authors = [
   { name="Guilherme Oliveira", email="gui.p.oliv@proton.me" },
 ]
-description = "PyCap is a tool that makes using a message broker like RabbitMQ more seamless and easy to implement, with decorators and an injected service specifically for it."
+description = "PyMBCap is a tool that makes using a message broker like RabbitMQ more seamless and easy to implement, with decorators and an injected service specifically for it."
 readme = "README.md"
 requires-python = ">=3.14"
 classifiers = [

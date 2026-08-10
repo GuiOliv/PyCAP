@@ -1,4 +1,4 @@
-from PyCap.Config.Container import RabbitMQContainer
+from PyMBCap.Config.Container import RabbitMQContainer
 
 def wireRabbitMQContainer(modules : list[str]):
     container = RabbitMQContainer()

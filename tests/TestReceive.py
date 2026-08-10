@@ -1,9 +1,9 @@
-from PyCap.MessagerService.IMessageBrokerService import IMessageBrokerService
+from PyMBCap.MessagerService.IMessageBrokerService import IMessageBrokerService
 from dependency_injector.wiring import Provide, inject
-from PyCap.Config.Container import RabbitMQContainer
-from PyCap.Config.Config import wireRabbitMQContainer
+from PyMBCap.Config.Container import RabbitMQContainer
+from PyMBCap.Config.Config import wireRabbitMQContainer
 import sys, os
-from PyCap.MessagerService.Register import register
+from PyMBCap.MessagerService.Register import register
 
 @inject
 def main(rabbitMQ : IMessageBrokerService = Provide[RabbitMQContainer.MessageService]):
