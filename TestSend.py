@@ -7,9 +7,9 @@ def main(rabbitMQ : IMessageBrokerService = Provide[RabbitMQContainer.MessageSer
     
     print(rabbitMQ.ip_address)
 
-    connection = rabbitMQ.establish_connection()
+    rabbitMQ.establish_connection()
 
-    channel = connection.channel()
+    rabbitMQ.publish_function("delayed-exchange", "test", body = "Hello World", delay = 5000)
 
     print("channel")
 

@@ -1,1 +1,10 @@
-pika==1.4.4
+certifi==2026.7.22
+charset-normalizer==3.4.9
+dependency-injector==4.49.1
+docopt==0.6.2
+idna==3.18
+pika==1.4.2
+pipreqs==0.4.13
+requests==2.34.2
+urllib3==2.7.0
+yarg==0.1.10
