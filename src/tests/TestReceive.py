@@ -4,18 +4,20 @@ from PyMBCap.Config.Container import RabbitMQContainer
 from PyMBCap.Config.Config import wireRabbitMQContainer
 import sys, os
 from PyMBCap.MessagerService.Register import register
+import asyncio
 
 @inject
-def main(rabbitMQ : IMessageBrokerService = Provide[RabbitMQContainer.MessageService]):
-    @register(exchange_name="delayed-exchange", routing_key= "test")
-    def callback(ch, method, properties, body):
-        print(f" [x] Received {body}")
+async def main(rabbitMQ : IMessageBrokerService = Provide[RabbitMQContainer.MessageService]):
+    async def callback(message):
+        print(f" [x] Received {message.body}")
+
+    await register(func=callback,exchange_name="delayed-exchange", routing_key= "test")
 
 if __name__ == "__main__":
     wireRabbitMQContainer([__name__])
 
     try:
-        main()
+        asyncio.run(main())
     except KeyboardInterrupt:
             print('Interrupted')
             try:

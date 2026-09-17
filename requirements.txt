@@ -8,3 +8,4 @@ pipreqs==0.4.13
 requests==2.34.2
 urllib3==2.7.0
 yarg==0.1.10
+aio-pika==10.0.1
