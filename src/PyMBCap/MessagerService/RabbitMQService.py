@@ -41,7 +41,8 @@ class RabbitMQService(IMessageBrokerService):
     async def establish_connection(self):
         """Creates a connection with the message broker"""
 
-        self.connection = await aio_pika.connect_robust(host=self.ip_address, port=self.port, login=self.user, password=self.password)
+        if not self.connection:
+            self.connection = await aio_pika.connect_robust(host=self.ip_address, port=self.port, login=self.user, password=self.password)
         return self.connection
 
     async def publish_function(self, exchange_name : str, routing_key : str, exchange_type : str = "x-delayed-message", delay : int = 0, durable : bool = True, body : str = ""):
@@ -66,7 +67,7 @@ class RabbitMQService(IMessageBrokerService):
 
         queue = await channel.declare_queue(name=routing_key, durable=durable, arguments={"x-queue-type": "quorum", "x-delayed-retry-type": retryType.value, "x-delayed-retry-min": delayedRetryMin})
 
-        await queue.bind(exc)
+        await queue.bind(exc, routing_key=routing_key)
         await queue.consume(func)
 
         print("Listening")
