@@ -9,7 +9,8 @@ import asyncio
 @inject
 async def main(rabbitMQ : IMessageBrokerService = Provide[RabbitMQContainer.MessageService]):
     async def callback(message):
-        print(f" [x] Received {message.body}")
+        async with message.process():
+            print(f" [x] Received {message.body}")
 
     await register(func=callback,exchange_name="delayed-exchange", routing_key= "test")
 

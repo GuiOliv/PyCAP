@@ -1,6 +1,4 @@
 from PyMBCap.MessagerService.IMessageBrokerService import IMessageBrokerService
-from pika import BasicProperties,BlockingConnection,ConnectionParameters
-from pika.adapters.blocking_connection import BlockingChannel
 from enum import Enum
 import aio_pika
 import asyncio
@@ -51,11 +49,9 @@ class RabbitMQService(IMessageBrokerService):
 
         exc = await channel.declare_exchange(name=exchange_name, type=exchange_type, durable=durable, arguments=self.args)
 
-        basic_properties = BasicProperties(headers=self.__header__(delay=delay), delivery_mode=1)
-
         message = aio_pika.Message(
             body=bytes(body, encoding="utf8"),
-            delivery_mode=1,
+            delivery_mode=2,
             headers=self.__header__(delay=delay)
         )
 
@@ -75,3 +71,4 @@ class RabbitMQService(IMessageBrokerService):
 
         print("Listening")
         await asyncio.Future()
+
