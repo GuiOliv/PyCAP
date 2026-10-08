@@ -19,6 +19,9 @@ class RabbitMQService(IMessageBrokerService):
 
     ip_address = None
     port = None
+    host = None
+    user = None
+    password = None
     connection = None
 
     args = {
@@ -30,14 +33,17 @@ class RabbitMQService(IMessageBrokerService):
             "x-delay": delay
         }
 
-    def __init__(self, ip_address : str, port : int) -> None:
+    def __init__(self, ip_address : str, port : int, host : str, user : str, password : str) -> None:
         self.ip_address = ip_address
         self.port = int(port)
+        self.host = host
+        self.user = user
+        self.password = password
 
     async def establish_connection(self):
         """Creates a connection with the message broker"""
 
-        self.connection = await aio_pika.connect_robust(host=self.ip_address, port=self.port)
+        self.connection = await aio_pika.connect_robust(host=self.ip_address, port=self.port, login=self.user, password=self.password)
         return self.connection
 
     async def publish_function(self, exchange_name : str, routing_key : str, exchange_type : str = "x-delayed-message", delay : int = 0, durable : bool = True, body : str = ""):

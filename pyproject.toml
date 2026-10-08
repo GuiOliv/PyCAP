@@ -4,13 +4,13 @@ build-backend = "hatchling.build"
 
 [project]
 name = "PyMBCap"
-version = "0.0.1"
+version = "0.0.3"
 authors = [
   { name="Guilherme Oliveira", email="gui.p.oliv@proton.me" },
 ]
 description = "PyMBCap is a tool that makes using a message broker like RabbitMQ more seamless and easy to implement, with decorators and an injected service specifically for it."
 readme = "README.md"
-requires-python = ">=3.14"
+requires-python = ">=3.12"
 classifiers = [
     "Programming Language :: Python :: 3",
     "Operating System :: OS Independent",
@@ -28,6 +28,7 @@ dependencies = [
     "requests==2.34.2",
     "urllib3==2.7.0",
     "yarg==0.1.10",
+    "aio-pika==10.0.1",
 ]
 
 [project.urls]

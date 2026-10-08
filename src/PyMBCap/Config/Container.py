@@ -8,5 +8,8 @@ class RabbitMQContainer(containers.DeclarativeContainer):
     MessageService = providers.Factory(
         RabbitMQService,
         ip_address=config.ip_address,
-        port = config.port
+        port = config.port,
+        host = config.host,
+        user = config.user,
+        password = config.password
     )
